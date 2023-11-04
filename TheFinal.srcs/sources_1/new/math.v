@@ -36,12 +36,12 @@ module full_adder(
 endmodule
 //add
 module add(
-    input [7:0] a,
-    input [7:0] b,
-    output [7:0] result
+    input [15:0] a,
+    input [15:0] b,
+    output [15:0] result
     );
     //通过全加器实现
-    wire c1,c2,c3,c4,c5,c6,c7;
+    wire c1,c2,c3,c4,c5,c6,c7,c8,c9,c10,c11,c12,c13,c14,c15,c16;
     full_adder fa0(a[0],b[0],1'b0,result[0],c0);
     full_adder fa1(a[1],b[1],c0,result[1],c1);
     full_adder fa2(a[2],b[2],c1,result[2],c2);
@@ -50,15 +50,23 @@ module add(
     full_adder fa5(a[5],b[5],c4,result[5],c5);
     full_adder fa6(a[6],b[6],c5,result[6],c6);
     full_adder fa7(a[7],b[7],c6,result[7],c7);
+    full_adder fa8(a[8],b[8],c7,result[8],c8);
+    full_adder fa9(a[9],b[9],c8,result[9],c9);
+    full_adder fa10(a[10],b[10],c9,result[10],c10);
+    full_adder fa11(a[11],b[11],c10,result[11],c11);
+    full_adder fa12(a[12],b[12],c11,result[12],c12);
+    full_adder fa13(a[13],b[13],c12,result[13],c13);
+    full_adder fa14(a[14],b[14],c13,result[14],c14);
+    full_adder fa15(a[15],b[15],c14,result[15],c15);
 endmodule
 //sub
 module sub(
-    input [7:0] a,
-    input [7:0] b,
-    output [7:0] result
+    input [15:0] a,
+    input [15:0] b,
+    output [15:0] result
     );
     //通过全加器实现
-    wire c1,c2,c3,c4,c5,c6,c7;
+    wire c1,c2,c3,c4,c5,c6,c7,c8,c9,c10,c11,c12,c13,c14,c15,c16;
     full_adder fa0(a[0],~b[0],1'b1,result[0],c0);
     full_adder fa1(a[1],~b[1],c0,result[1],c1);
     full_adder fa2(a[2],~b[2],c1,result[2],c2);
@@ -67,12 +75,16 @@ module sub(
     full_adder fa5(a[5],~b[5],c4,result[5],c5);
     full_adder fa6(a[6],~b[6],c5,result[6],c6);
     full_adder fa7(a[7],~b[7],c6,result[7],c7);
+    full_adder fa8(a[8],~b[8],c7,result[8],c8);
+    full_adder fa9(a[9],~b[9],c8,result[9],c9);
+    full_adder fa10(a[10],~b[10],c9,result[10],c10);
+    full_adder fa11(a[11],~b[11],c10,result[11],c11);
+    full_adder fa12(a[12],~b[12],c11,result[12],c12);
+    full_adder fa13(a[13],~b[13],c12,result[13],c13);
+    full_adder fa14(a[14],~b[14],c13,result[14],c14);
+    full_adder fa15(a[15],~b[15],c14,result[15],c15);
+
+    
 endmodule
-//右移运算
-module right_shift(
-    input [7:0] a,
-    output [7:0] result
-    );
-    assign result [6:0] = a [7:1];
-    assign result [7] = 1'b0;
-endmodule
+//乘法器(门电路实现)
+
